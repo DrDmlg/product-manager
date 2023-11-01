@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("/")
 public class ProductController {
 
     private final ProductService productService;
@@ -31,7 +32,7 @@ public class ProductController {
         return new ResponseEntity<>(productService.update(product), HttpStatus.OK);
     }
 
-    @DeleteMapping("{/id}")
+    @DeleteMapping("/{id}")
     public HttpStatus delete(@PathVariable Long id) {
         productService.delete(id);
         return HttpStatus.OK;
