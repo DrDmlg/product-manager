@@ -11,14 +11,10 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String name;
-    private Short amount;
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
 }
