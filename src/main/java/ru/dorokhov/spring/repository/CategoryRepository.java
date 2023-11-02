@@ -5,6 +5,4 @@ import org.springframework.stereotype.Repository;
 import ru.dorokhov.spring.entity.Category;
 
 @Repository
-public interface CategoryRepository extends JpaRepository<Category, Long> {
-
-}
+public interface CategoryRepository extends JpaRepository<Category, Long> { }

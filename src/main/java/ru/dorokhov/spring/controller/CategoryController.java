@@ -3,9 +3,7 @@ package ru.dorokhov.spring.controller;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.dorokhov.spring.entity.Category;
 import ru.dorokhov.spring.service.CategoryService;
 
@@ -21,5 +19,11 @@ public class CategoryController {
     @GetMapping
     public ResponseEntity<List<Category>> readAll() {
         return new ResponseEntity<>(categoryService.readAll(), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public HttpStatus delete(@PathVariable Long id) {
+        categoryService.delete(id);
+        return HttpStatus.OK;
     }
 }
